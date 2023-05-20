@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TES SOCKET</title>
+</head>
+<body>
+    <h1>TES SOCKET</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+	<script>
+		var socket = io.connect('http://localhost:5555', {
+			extraHeaders: {
+				key: "indonesia02"
+			},
+		});
+		
+		$(document).ready(function() {
+			let id_client = 'ari123';
+			console.log('id_client',id_client);
+			socket.emit('client', {
+				keyclient: id_client,
+			});
+			socket.on('data', function(data) {
+				alert('INIT');
+                console.log(data);
+			});
+		});
+	</script>
+</body>
+</html>
