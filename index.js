@@ -105,4 +105,9 @@ io.on("connection", function (socket) {
 
 server.listen(port, function () {
   console.log("App running on *: " + port);
+  var min=0
+  setInterval(() => {
+    min++;
+    console.log('Logging a message every '+min+' minute');
+  }, 60000); // 60000 milliseconds = 1 minute
 });
